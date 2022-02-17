@@ -10,9 +10,8 @@
 
 ##### Check out the course by clicking on this link [Here.](https://www.coursera.org/learn/introduction-to-big-data-with-spark-hadoop/) This is Part of the IBM Data Engineer Certification.
 
-#### Copyright (C)
 
-**Copyright:**  IBM Skills Network | All rights reserved. 2022
+**Copyright (C):**  IBM Skills Network | All rights reserved. 2022
 
 **Student:** [Jeremias Tivane](https://www.linkedin.com/in/jeremiastivane/)
 
