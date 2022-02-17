@@ -1,0 +1,86 @@
+
+
+Hands-on Lab: Submit Apache Spark Applications
+
+
+ - Install a Apache Spark cluster using Docker Compose
+ - On the right hand side to this instructions you'll see the Theia IDE. Select the Lab tab. On the menu bar select Terminal>New Termina
+
+
+ - Please enter the following commands in the terminal: Install PySpark:
+
+pip3 install pyspark
+
+ - Get the latest code:
+
+git clone https://github.com/big-data-europe/docker-spark.git
+
+ - Change the directory to the downloaded code:
+
+cd docker-spark
+
+ - Start the cluster:
+
+docker-compose up
+
+
+--Create code
+--Create a new python file called "submit.py"
+---Paste the following code to the file and save:
+
+from pyspark import SparkContext, SparkConf
+from pyspark.sql import SparkSession
+from pyspark.sql.types import StructField, StructType, IntegerType, StringType
+
+sc = SparkContext.getOrCreate(SparkConf().setMaster('spark://localhost:7077'))
+sc.setLogLevel("INFO")
+
+spark = SparkSession.builder.getOrCreate()
+
+
+spark = SparkSession.builder.getOrCreate()
+df = spark.createDataFrame(
+    [
+        (1, "foo"),
+        (2, "bar"),
+    ],
+    StructType(
+        [
+            StructField("id", IntegerType(), False),
+            StructField("txt", StringType(), False),
+        ]
+    ),
+)
+print(df.dtypes)
+df.show()
+
+--Execute code / submit Spark job
+--Now we execute the python file we saved earlier. Click on "Terminal" on the bar on top and click on "New Terminal" as shown in the image below.
+
+--Once the terminal opens up at the bottom of the window, please type in the following command in the terminal to execute the Python script:
+
+python3 submit.py
+
+
+--Experiment yourself
+--Please have a look at the UI of the Apache Spark master and worker.
+--Using the launch application button you can gain access to it. Start with port 8080 first (Spark master)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
